@@ -37,7 +37,7 @@ module Jekyll
       doc = Nokogiri::HTML(content)
 
       updated = false
-      doc.css('script[src], link[rel="stylesheet"]').each do |tag|
+      doc.css('script[src], link[rel="stylesheet"], link[rel="preload"], link[rel="modulepreload"]').each do |tag|
         path = tag['src'] || tag['href']
         next unless path
 
