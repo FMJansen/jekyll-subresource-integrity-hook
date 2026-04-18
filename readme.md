@@ -68,12 +68,12 @@ It is important that this plugin happens last, after any form of file manipulati
 
 Various topics about modern browser security:
 
-- [Subresource Integrity by Mozilla](https://www.keycdn.com/support/what-is-cache-busting)
+- [Subresource Integrity by Mozilla](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity)
 - [Content Security Policy by Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 
 ### Guides
 
-- [Your first Jekyll plugin](https://perseus333.github.io/blog/jekyll-first-plugin)
+- [Your first Jekyll plugin](https://perseuslynx.dev/blog/jekyll-first-plugin)
 
 ### Similar projects
 
