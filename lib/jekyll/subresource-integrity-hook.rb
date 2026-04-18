@@ -29,11 +29,10 @@ module Jekyll
     # Updates the HTML file by including sub resource integrity (SRI) attributes. The hashes are computed on the fly.
     # @param site [Jekyll::Site] Absolute path to the destination folder
     # @param relative_path_source [String] Relative path of the source file
-    def self._process_html (site, relative_path_source)
+    def self._process_html (site, path_source)
 
       # Read and parse the file
-      absolute_path_source = File.join(site.dest, _compute_path_to_asset(site, relative_path_source))
-      content = File.read(absolute_path_source)
+      content = File.read(path_source)
       doc = Nokogiri::HTML(content)
 
       updated = false
@@ -51,12 +50,12 @@ module Jekyll
         tag['crossorigin'] ||= 'anonymous'
         updated = true
 
-        Jekyll.logger.info "Generated subresource integrity hash for: #{absolute_path_source}"
+        Jekyll.logger.info "Generated subresource integrity hash for: #{path_source}"
       end
 
       # Write updated HTML if changes were made
       if updated
-        File.write(absolute_path_source, doc.to_html)
+        File.write(path_source, doc.to_html)
       end
     end
 
@@ -65,9 +64,9 @@ module Jekyll
 
       site.each_site_file do |file|
         # Process only HTML files
-        next unless file.extname == '.html'
+        next unless file.extname == '.html' || file.extname == '.md'
 
-        _process_html(site, file.path)
+        _process_html(site, file.destination(site.dest))
       end
     end
   end
