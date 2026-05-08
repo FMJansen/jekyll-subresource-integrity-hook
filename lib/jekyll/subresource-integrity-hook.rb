@@ -51,14 +51,14 @@ module Jekyll
         tag['integrity'] = integrity
         tag['crossorigin'] ||= 'anonymous'
         updated = true
-
-        Jekyll.logger.info "Generated subresource integrity hash for: #{absolute_path_source}"
       end
 
       # Write updated HTML if changes were made
       if updated
         File.write(absolute_path_source, doc.to_html)
       end
+
+      Jekyll.logger.info "Generated subresource integrity hash for: #{absolute_path_source}"
     end
 
     Jekyll::Hooks.register :site, :post_write do |site|
