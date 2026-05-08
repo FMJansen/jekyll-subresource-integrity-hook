@@ -39,6 +39,7 @@ module Jekyll
       updated = false
       doc.css('script[src], link[rel="stylesheet"], link[rel="preload"], link[rel="modulepreload"]').each do |tag|
         path = tag['src'] || tag['href']
+        path.slice!(/\?.+/)
         next unless path
 
         # Compute absolute path to asset
