@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = ">= 3.0.0"
 
-  s.add_dependency 'jekyll', '> 3.3', '< 5.0'
-  s.add_dependency 'nokogiri', '~> 1.18.1'
+  s.add_dependency 'jekyll', '> 3.3'
+  s.add_dependency 'nokogiri', '> 1.18.1'
 end
