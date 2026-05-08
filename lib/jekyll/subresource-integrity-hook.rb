@@ -57,7 +57,7 @@ module Jekyll
         File.write(path_source, doc.to_html)
       end
 
-      Jekyll.logger.info "Generated subresource integrity hash for: #{absolute_path_source}"
+      Jekyll.logger.info "Generated subresource integrity hash for: #{path_source}"
     end
 
     Jekyll::Hooks.register :site, :post_write do |site|
